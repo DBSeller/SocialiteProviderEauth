@@ -1,0 +1,21 @@
+{
+    "name": "socialiteproviders/eauth",
+    "description": "Eauth OAuth2 Provider for Laravel Socialite",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Socialiteproviders\\Eauth\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Adereldo Oliveira",
+            "email": "oliveiracienciacomputacao@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "socialiteproviders/manager": "^4.3"
+    }
+}
