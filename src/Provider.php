@@ -17,7 +17,7 @@ class Provider extends AbstractProvider
         return $this->getInstanceUri() . 'oauth/token';
     }
 
-    protected $fields = ['id', 'name', 'cpf'];
+    protected $fields = ['id', 'name', 'cpfcnpj','email'];
 
     protected function getAuthUrl($state)
     {
@@ -41,8 +41,22 @@ class Provider extends AbstractProvider
             'id'            => $user['id'],
             'name'          => $user['name'],
             'email'         => $user['email'],
-            'cpfcnpj'   => $user['cpfcnpj'] ?? null,
+            'cpfcnpj'   => $user['cpfcnpj']
         ]);
+    }
+
+    /**
+     * Get the headers for the access token request.
+     *
+     * @param  string  $code
+     * @return array
+     */
+    protected function getTokenHeaders($code)
+    {
+        return [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
     }
 
     public function getAccessToken($code)
